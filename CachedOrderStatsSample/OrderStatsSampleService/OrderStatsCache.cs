@@ -1,10 +1,10 @@
 ﻿using System.Collections.Concurrent;
 
-namespace OrderCachedStatsSample;
+namespace OrderStatsSampleService;
 
 public class OrderStatsCache : IOrderStatsCache
 {
-    private ConcurrentDictionary<CacheKey, OrderStats> cache = new();
+    private readonly ConcurrentDictionary<CacheKey, OrderStats> cache = new();
     public void SetStats(string region, string category, OrderStats stats)
     {
         cache.AddOrUpdate(new CacheKey(region, category), stats, (key, existingStats) => stats);
@@ -16,6 +16,7 @@ public class OrderStatsCache : IOrderStatsCache
     }
 
     private class CacheKey
+
     {
         public CacheKey(string region, string category)
         {
@@ -24,5 +25,10 @@ public class OrderStatsCache : IOrderStatsCache
         }
         public string Region { get; }
         public string Category { get; }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Region, Category);
+        }
     }
 }

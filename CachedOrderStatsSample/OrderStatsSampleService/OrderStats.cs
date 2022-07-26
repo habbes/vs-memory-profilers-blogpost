@@ -1,4 +1,4 @@
-﻿namespace OrderCachedStatsSample;
+﻿namespace OrderStatsSampleService;
 
 public class OrderStats
 {

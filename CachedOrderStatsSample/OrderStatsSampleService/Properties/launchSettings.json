@@ -9,10 +9,10 @@
     }
   },
   "profiles": {
-    "ProductCachedStatsSample": {
+    "OrderStatsSampleService": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "stats/Nairobi/Clothing",
       "applicationUrl": "http://localhost:5108",
       "environmentVariables": {
@@ -21,7 +21,7 @@
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "stats/Nairobi/Clothing",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -1,4 +1,4 @@
-using OrderCachedStatsSample;
+using OrderStatsSampleService;
 
 var builder = WebApplication.CreateBuilder(args);
 

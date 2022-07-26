@@ -1,4 +1,4 @@
-﻿namespace OrderCachedStatsSample;
+﻿namespace OrderStatsSampleService;
 
 public class DataStore : IDataStore
 {
@@ -16,10 +16,28 @@ public class DataStore : IDataStore
         yield return new Order
         {
             Id = 2,
+            Price = 200m,
+            Category = "Electronics",
+            Product = "Laptop",
+            Region = "Redmond"
+        };
+
+        yield return new Order
+        {
+            Id = 3,
             Price = 50m,
             Category = "Clothing",
             Product = "T-Shirt",
             Region = "Nairobi",
+        };
+
+        yield return new Order
+        {
+            Id = 4,
+            Price = 20m,
+            Category = "Cosmetics",
+            Product = "Lipstick",
+            Region = "Oslo"
         };
     }
 }

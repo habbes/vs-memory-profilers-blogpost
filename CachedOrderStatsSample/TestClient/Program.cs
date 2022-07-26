@@ -4,7 +4,7 @@ HttpClient httpClient = new();
 string[] endpoints = new string[]
 {
     "/stats/Nairobi/Clothing",
-    "/stats/Redmond/Electronics",
+    "/stats/Redmond/Stationery",
     "/stats/Oslo/Cosmetics"
 };
 

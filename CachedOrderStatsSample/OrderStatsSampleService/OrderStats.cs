@@ -6,4 +6,5 @@ public class OrderStats
     public string Region { get; set; }
     public decimal TotalSales { get; set; }
     public decimal AverageSales { get; set; }
+    public int Count { get; set; }
 }

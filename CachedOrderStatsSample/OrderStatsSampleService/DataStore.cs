@@ -16,9 +16,9 @@ public class DataStore : IDataStore
         yield return new Order
         {
             Id = 2,
-            Price = 200m,
-            Category = "Electronics",
-            Product = "Laptop",
+            Price = 10m,
+            Category = "Stationery",
+            Product = "Pen",
             Region = "Redmond"
         };
 
@@ -27,7 +27,7 @@ public class DataStore : IDataStore
             Id = 3,
             Price = 50m,
             Category = "Clothing",
-            Product = "T-Shirt",
+            Product = "Shoes",
             Region = "Nairobi",
         };
 

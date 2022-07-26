@@ -17,7 +17,10 @@ public class StatsService : IStatsService
         if (!cache.TryGetStats(region, category, out stats))
         {
             stats = ComputeStats(region, category);
-            cache.SetStats(region, category, stats);
+            if (stats.Count > 0)
+            {
+                cache.SetStats(region, category, stats);
+            }
         }
 
         return stats!;
@@ -26,23 +29,26 @@ public class StatsService : IStatsService
     private OrderStats ComputeStats(string region, string category)
     {
         IEnumerable<Order> orders = dataStore.GetOrders();
-        int counter = 0;
         var finalStats = orders.Where(order => order.Region == region && order.Category == category)
             .Aggregate(new OrderStats
             {
                 Region = region,
                 Category = category,
                 AverageSales = 0,
-                TotalSales = 0
+                TotalSales = 0,
+                Count = 0
             },
             (stats, order) =>
             {
                 stats.TotalSales += order.Price;
-                counter++;
+                stats.Count++;
                 return stats;
             });
 
-        finalStats.AverageSales = finalStats.TotalSales / counter;
+        if (finalStats.Count > 0)
+        {
+            finalStats.AverageSales = finalStats.TotalSales / finalStats.Count;
+        }
 
         return finalStats;
     }
